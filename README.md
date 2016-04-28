@@ -19,7 +19,11 @@ follow are:
 
 4. Then you can run the container & auto-start SQL Developer with
 
-        docker run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix sqldev echo \"/usr/java/jdk1.8.0_92/\" | sqldeveloper
+        docker run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix sqldev bin/bash
+
+5. Once you have the bash prompt up, enter the following command to load SQL Developer
+
+        echo "/usr/java/jdk1.8.0_92/" | sqldeveloper
 
 ## Installing Docker On Fedora, CentOS and RHEL
 
