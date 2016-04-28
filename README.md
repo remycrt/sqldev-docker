@@ -14,8 +14,11 @@ follow are:
 1. [Download the SQL Developer RPM from Oracle](http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/index.html) -- this requires an Oracle account
 2. Put the SQL Developer RPM into the /rpm directory
 3. Build the image from the root directory
+
         docker build -t sqldev .
+
 4. Then you can run the container & auto-start SQL Developer with
+
         docker run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix sqldev echo \"/usr/java/jdk1.8.0_92/\" | sqldeveloper
 
 ## Installing Docker On Fedora, CentOS and RHEL
