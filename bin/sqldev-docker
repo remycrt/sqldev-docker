@@ -1,2 +1,2 @@
 #!/bin/bash
-exec docker run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix sqldev echo bin/bash
+exec docker run -ti -v /tmp/.X11-unix/:/tmp/.X11-unix/ --rm -e DISPLAY -e TZ=GMT sqldev

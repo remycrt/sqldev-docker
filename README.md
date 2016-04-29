@@ -1,5 +1,5 @@
 # sqldev-docker
-Run SQL Developer in a Docker container
+Run SQL Developer in a Docker container on Fedora/RHEL
 
 ## Overview
 SQL Developer can act unpredictably if it is used with a version of Java
@@ -7,23 +7,25 @@ that is too high or too low. This container will install the correct version
 of Java for the latest SQL Developer, and when given the SQL Developer RPM,
 will install and launch it automatically.
 
+## Defaults
+* SQL Developer version: 4.1.3.20.78-1
+* JDK version: 1.8.0.92
+
 ## Quick Start
 If you already have Docker running on your system, the steps you should
 follow are:
 
 1. [Download the SQL Developer RPM from Oracle](http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/index.html) -- this requires an Oracle account
-2. Put the SQL Developer RPM into the /rpm directory
-3. Build the image from the root directory
+2. Update the Dockerfile with the version of SQL Developer you have.
+3. Put the SQL Developer RPM into the /import directory
+  * You can also drop in anything you want available in your container, e.g. a connection XML file
+4. Build the image from the root directory
 
         docker build -t sqldev .
 
-4. Then you can run the container & auto-start SQL Developer with
+5. Then you can run the container & auto-start SQL Developer with
 
-        docker run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix sqldev bin/bash
-
-5. Once you have the bash prompt up, enter the following command to load SQL Developer
-
-        echo "/usr/java/jdk1.8.0_92/" | sqldeveloper
+        docker run -ti -v /tmp/.X11-unix/:/tmp/.X11-unix/ --rm -e DISPLAY -e TZ=GMT sqldev
 
 ## Installing Docker On Fedora, CentOS and RHEL
 
