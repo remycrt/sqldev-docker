@@ -8,7 +8,7 @@ of Java for the latest SQL Developer, and when given the SQL Developer RPM,
 will install and launch it automatically.
 
 ## Defaults
-* SQL Developer version: 4.1.3.20.78-1
+* SQL Developer version: 4.1
 * JDK version: 1.8.0.92
 
 ## Quick Start
